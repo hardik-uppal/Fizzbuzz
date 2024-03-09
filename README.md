@@ -2,6 +2,7 @@
 
 ## Overview
 In this project, we leverage the sophisticated capabilities of CLIP segmentation to innovate within the domain of human clothing datasets, utilizing the comprehensive and well-curated mattmdjaga/human_parsing_dataset for fine-tuning and enhancing model performance. By deploying a Docker service, we establish a robust and consistent environment to evaluate CLIP segmentation's effectiveness accurately. Through meticulous exploratory data analysis, we identify key dataset characteristics, including class distribution and spatial biases, informing our strategy for data augmentation. This analysis empowers us to tailor our augmentation techniques, addressing dataset imbalances and biases effectively. By doing so, we not only refine the dataset for improved model training outcomes but also set the stage for more nuanced and accurate segmentation models. 
+
 This project sets up a Docker-based inference service using the [CLIPSegForImageSegmentation: CIDAS/clipseg-rd64-refined](https://huggingface.co/CIDAS/clipseg-rd64-refined) model, aimed at processing image segmentation with a focus on clothing in human images. The setup includes an NGINX server to handle multiple parallel incoming requests efficiently.
 
 ## Why CLIPSegForImageSegmentation?
