@@ -1,12 +1,7 @@
 from flask import Flask, request, jsonify
-
-# from transformers import pipeline
-# Load model directly
 from transformers import AutoProcessor, CLIPSegForImageSegmentation
 import requests
 from io import BytesIO
-
-# from diffusers import StableDiffusionXLPipeline
 import torch
 from PIL import Image
 
@@ -22,27 +17,26 @@ def predict():
         prompt = prompts[:10]
         raise Warning("Too many prompts, only using the first 10")
 
-    print("segment ", prompt)
     # Define the paths to the model and processor
     model_path = "/app/models/model"
     processor_path = "/app/models/processor"
 
     processor = AutoProcessor.from_pretrained(processor_path)
     model = CLIPSegForImageSegmentation.from_pretrained(model_path)
-    # model.to("mps")
 
+    # Download the image from the URL
     response = requests.get(url)
     image = Image.open(BytesIO(response.content))
 
+    # Preprocess the image and the text
     inputs = processor(
         text=prompt, images=[image] * len(prompt), padding=True, return_tensors="pt"
     )
 
     outputs = model(**inputs)
 
+    # Postprocess the outputs
     logits = outputs.logits
-    print(logits.shape)
-
     predictions = logits.sigmoid()  # Apply sigmoid to convert logits to probabilities
     thresholded_predictions = (
         predictions > 0.5
