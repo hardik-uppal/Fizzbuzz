@@ -1,7 +1,7 @@
 # CLIPSeg Inference Service Project
 
 ## Overview
-
+In this project, we leverage the sophisticated capabilities of CLIP segmentation to innovate within the domain of human clothing datasets, utilizing the comprehensive and well-curated mattmdjaga/human_parsing_dataset for fine-tuning and enhancing model performance. By deploying a Docker service, we establish a robust and consistent environment to evaluate CLIP segmentation's effectiveness accurately. Through meticulous exploratory data analysis, we identify key dataset characteristics, including class distribution and spatial biases, informing our strategy for data augmentation. This analysis empowers us to tailor our augmentation techniques, addressing dataset imbalances and biases effectively. By doing so, we not only refine the dataset for improved model training outcomes but also set the stage for more nuanced and accurate segmentation models. 
 This project sets up a Docker-based inference service using the [CLIPSegForImageSegmentation: CIDAS/clipseg-rd64-refined](https://huggingface.co/CIDAS/clipseg-rd64-refined) model, aimed at processing image segmentation with a focus on clothing in human images. The setup includes an NGINX server to handle multiple parallel incoming requests efficiently.
 
 ## Why CLIPSegForImageSegmentation?
@@ -35,3 +35,8 @@ python demo.py
 
 ### Dataset
 This project uses the human parsing dataset available on [Hugging Face: Human Parsing Dataset](https://huggingface.co/datasets/mattmdjaga/human_parsing_dataset). This dataset is crucial for our exploration and improvement efforts on the CLIPSeg model's segmentation capabilities regarding clothing.
+
+### Further ideas
+Building on our project, we can extend our exploration into the realm of virtual try-on applications, envisioning a sophisticated annotation pipeline that leverages systems akin to CLIP segmentation. By harnessing the power of diffusion models, we can advance towards creating a seamless virtual try-on experience, where users can visualize clothing items on  Gen-AI avatars or themselves in real-time with exceptional accuracy. 
+[StableVITON](https://github.com/rlawjdghek/StableVITON)
+[OOTDiffusion](https://github.com/levihsu/OOTDiffusion)
