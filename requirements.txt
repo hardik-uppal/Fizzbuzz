@@ -1,0 +1,9 @@
+flask
+gunicorn
+transformers
+diffusers
+accelerate
+safetensors
+torch
+requests
+pillow
